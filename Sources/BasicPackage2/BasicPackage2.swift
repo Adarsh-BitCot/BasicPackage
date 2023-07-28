@@ -1,4 +1,5 @@
 import Alamofire
+import SwiftUI
 import UIKit
 import Foundation
 import Kingfisher
@@ -11,7 +12,8 @@ public struct BasicPackage2 {
     }
 }
 
-public func callAPI(url: String){
+@available(iOS 13.0.0, *)
+public func callAPI(url: String) -> some View{
 //    AF.request(url).response { response in
 //        if let data = response.data{
 //            do{
@@ -22,6 +24,7 @@ public func callAPI(url: String){
 //            }
 //        }
 //    }
+    return Text("API Called")
 }
 
 public func uploadImage(image: UIImage, baseUrl: String, closer: @escaping (Bool) -> Void){

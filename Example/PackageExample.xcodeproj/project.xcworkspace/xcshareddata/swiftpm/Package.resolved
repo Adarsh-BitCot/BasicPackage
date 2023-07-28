@@ -15,7 +15,7 @@
       "location" : "https://github.com/Adarsh-BitCot/BasicPackage",
       "state" : {
         "branch" : "main",
-        "revision" : "fc701976fae8d97477969bef9d85acb55641dadf"
+        "revision" : "11d3b70c4e0dc261014c57968798e23dbbd33e71"
       }
     },
     {
@@ -25,6 +25,15 @@
       "state" : {
         "revision" : "c1f60c63f356d364f4284ba82961acbe7de79bcc",
         "version" : "7.8.1"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "633996a807442ec28df9d33b0f88ce57a0e2fdbf",
+        "version" : "5.17.0"
       }
     }
   ],
