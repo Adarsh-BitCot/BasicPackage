@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
+        "version" : "5.7.1"
+      }
+    },
+    {
+      "identity" : "basicpackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Adarsh-BitCot/BasicPackage",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d98447f34fe56c416b383fbbf4e961a7dad37666"
+      }
+    }
+  ],
+  "version" : 2
+}

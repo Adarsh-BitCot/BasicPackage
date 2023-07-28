@@ -11,6 +11,7 @@
 		8BE38F6A2A73CE8B005ED8FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE38F692A73CE8B005ED8FF /* ContentView.swift */; };
 		8BE38F6C2A73CE8C005ED8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE38F6B2A73CE8C005ED8FF /* Assets.xcassets */; };
 		8BE38F6F2A73CE8C005ED8FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE38F6E2A73CE8C005ED8FF /* Preview Assets.xcassets */; };
+		8BE38F772A73D096005ED8FF /* BasicPackage2 in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE38F762A73D096005ED8FF /* BasicPackage2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE38F772A73D096005ED8FF /* BasicPackage2 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = PackageExample;
+			packageProductDependencies = (
+				8BE38F762A73D096005ED8FF /* BasicPackage2 */,
+			);
 			productName = PackageExample;
 			productReference = 8BE38F642A73CE8B005ED8FF /* PackageExample.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 8BE38F5B2A73CE8B005ED8FF;
+			packageReferences = (
+				8BE38F752A73D096005ED8FF /* XCRemoteSwiftPackageReference "BasicPackage" */,
+			);
 			productRefGroup = 8BE38F652A73CE8B005ED8FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -339,6 +347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8BE38F752A73D096005ED8FF /* XCRemoteSwiftPackageReference "BasicPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Adarsh-BitCot/BasicPackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8BE38F762A73D096005ED8FF /* BasicPackage2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BE38F752A73D096005ED8FF /* XCRemoteSwiftPackageReference "BasicPackage" */;
+			productName = BasicPackage2;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8BE38F5C2A73CE8B005ED8FF /* Project object */;
 }
