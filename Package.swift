@@ -17,7 +17,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", .upToNextMajor(from: "6.5.12")),
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.7.1")),
-        .package(url: "https://github.com/onevcat/Kingfisher", .upToNextMajor(from: "7.8.1"))
+        .package(url: "https://github.com/onevcat/Kingfisher", .upToNextMajor(from: "7.8.1")),
+        .package(url: "https://github.com/SDWebImage/SDWebImage.git", .upToNextMajor(from: "5.17.0"))
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -27,7 +28,8 @@ let package = Package(
         .target(
             name: "BasicPackage2",
             dependencies: ["Alamofire",
-                           "Kingfisher"],
+                           "Kingfisher",
+                           "SDWebImage"],
             path: "Sources"),
         .testTarget(
             name: "BasicPackage2Tests",
