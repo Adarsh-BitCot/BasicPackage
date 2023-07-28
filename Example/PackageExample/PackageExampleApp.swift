@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BasicPackage2
 
 @main
 struct PackageExampleApp: App {
