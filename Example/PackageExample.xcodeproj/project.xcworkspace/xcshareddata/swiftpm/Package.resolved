@@ -15,7 +15,16 @@
       "location" : "https://github.com/Adarsh-BitCot/BasicPackage",
       "state" : {
         "branch" : "main",
-        "revision" : "d98447f34fe56c416b383fbbf4e961a7dad37666"
+        "revision" : "3195e8b29699f2ba2b179c09638cdf8d94790538"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher",
+      "state" : {
+        "revision" : "c1f60c63f356d364f4284ba82961acbe7de79bcc",
+        "version" : "7.8.1"
       }
     }
   ],
