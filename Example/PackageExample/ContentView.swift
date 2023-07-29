@@ -9,10 +9,9 @@ import SwiftUI
 import BasicPackage2
 
 struct ContentView: View {
-    @State var data: Data = Data()
     @State var getApiURL: String = "https://reqres.in/api/users/2"
     @State var postApiURL:String = "https://reqres.in/api/users"
-    
+    @State var getResponseJSON: [String:Any] = [:]
     var body: some View {
         VStack {
             Text("Welcome")
@@ -24,8 +23,15 @@ struct ContentView: View {
 //                postAPICall(url: postApiURL, param: ["name":"morpheus",
 //                                             "job":"leader"])
                 //                openLink(url: "https://www.bitcot.com")
+                
+                getResponseJSON = getAPICall(url: getApiURL)
+                print(getResponseJSON)
             } label: {
                 Text("Know more about us!")
+            }
+            
+            if getResponseJSON.count > 0 {
+                Text("API Success")
             }
         }
         .padding()
