@@ -10,7 +10,7 @@ import BasicPackage2
 
 struct ContentView: View {
     @State var data: Data = Data()
-    @State var apiURL: String = "https://reqres.in/api/users?page=2"
+    @State var apiURL: String = "https://reqres.in/api/users/2"
     
     var body: some View {
         VStack {
@@ -21,7 +21,8 @@ struct ContentView: View {
             Button {
 //                data = getAPIData(url: apiURL)
 //                print(data.first)
-                openLink(url: "https://www.bitcot.com")
+                getAPICall(url: apiURL)
+//                openLink(url: "https://www.bitcot.com")
             } label: {
                 Text("Know more about us!")
             }

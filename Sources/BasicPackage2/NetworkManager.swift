@@ -15,7 +15,7 @@ class NetworkManager: NSObject {
                      parameters: [String: Any] = [:],
                      headers : HTTPHeaders = [:],
                      method: String = "GET",
-                     encoding: ParameterEncoding = JSONEncoding.default,
+                     encoding: ParameterEncoding = URLEncoding.default,
                      completion:@escaping ([String: Any]?) -> Void) {
         AF.request(urlString,
                    method: HTTPMethod(rawValue: method),
