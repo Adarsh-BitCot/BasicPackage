@@ -19,7 +19,8 @@ struct ContentView: View {
                 .font(.largeTitle)
             Spacer()
             Button {
-                data = getAPIData(url: apiURL)
+//                data = getAPIData(url: apiURL)
+//                print(data.first)
             } label: {
                 Text("Get User list")
             }

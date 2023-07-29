@@ -56,6 +56,11 @@ public func getAPIData(url: String) -> Data{
     return apiData ?? Data()
 }
 
+public func openLink(url: String) {
+//    UIApplication.shared.openURL(URL(string: "http://www.stackoverflow.com")!)
+    UIApplication.shared.open(URL(string: url)!)
+}
+
 public func uploadImage(image: UIImage, baseUrl: String, closer: @escaping (Bool) -> Void){
     var headers:HTTPHeaders{
         get{
