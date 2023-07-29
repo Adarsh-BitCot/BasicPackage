@@ -67,7 +67,8 @@ public func postAPICall(url: String,
                         headers: HTTPHeaders = [:]){
     
     NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { (jsonData) in
-    print(jsonData)
+        print(jsonData)
+    }
 }
 
 public func openLink(url: String) {

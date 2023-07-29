@@ -19,10 +19,12 @@ struct ContentView: View {
                 .font(.largeTitle)
             Spacer()
             Button {
-//                data = getAPIData(url: apiURL)
-//                print(data.first)
-                getAPICall(url: apiURL)
-//                openLink(url: "https://www.bitcot.com")
+                //                data = getAPIData(url: apiURL)
+                //                print(data.first)
+                //                getAPICall(url: apiURL)
+                postAPICall(url: "", param: ["name":"morpheus",
+                                             "job":"leader"])
+                //                openLink(url: "https://www.bitcot.com")
             } label: {
                 Text("Know more about us!")
             }
