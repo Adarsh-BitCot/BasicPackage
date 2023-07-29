@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var getApiURL: String = "https://reqres.in/api/users/2"
     @State var postApiURL:String = "https://reqres.in/api/users"
     @State var getResponseJSON: [String:Any] = [:]
+    
     var body: some View {
         VStack {
             Text("Welcome")
@@ -27,11 +28,7 @@ struct ContentView: View {
                 getResponseJSON = getAPICall(url: getApiURL)
                 print(getResponseJSON)
             } label: {
-                Text("Know more about us!")
-            }
-            
-            if getResponseJSON.count > 0 {
-                Text("API Success")
+                Text("Action")
             }
         }
         .padding()

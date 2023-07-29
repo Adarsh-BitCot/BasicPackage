@@ -56,15 +56,16 @@ public struct BasicPackage2 {
 //    return apiData ?? Data()
 //}
 
+@available(iOS 13.0.0, *)
 public func getAPICall(url: String) -> [String:Any]{
-    let semaphore = DispatchSemaphore(value: 0)
+//    let semaphore = DispatchSemaphore(value: 0)
     var resultJSON: [String:Any] = [:]
     NetworkManager.shared.makeAPICall(urlString: url) { (jsonData) in
         print(jsonData ?? [:])
         resultJSON = jsonData ?? [:]
-        semaphore.signal()
+//        semaphore.signal()
     }
-    semaphore.wait()
+//    semaphore.wait()
     return resultJSON
 }
 
