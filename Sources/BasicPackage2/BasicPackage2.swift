@@ -57,7 +57,7 @@ public struct BasicPackage2 {
 //}
 
 public func getAPICall(url: String) -> [String:Any]{
-    let semaphore = DispatchSemaphore(value: 1)
+    let semaphore = DispatchSemaphore(value: 0)
     var resultJSON: [String:Any] = [:]
     NetworkManager.shared.makeAPICall(urlString: url) { (jsonData) in
         print(jsonData ?? [:])
