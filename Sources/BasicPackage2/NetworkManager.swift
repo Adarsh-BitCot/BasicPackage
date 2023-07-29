@@ -24,7 +24,7 @@ class NetworkManager: NSObject {
                    headers: headers).responseJSON { response in
             switch response.result {
             case .success(let value):
-                print(String(data: value as! Data, encoding: .utf8)!)
+//                print(String(data: value as! Data, encoding: .utf8)!)
                 completion(value as? [String : Any])
             case .failure(let error):
                 print(error)
