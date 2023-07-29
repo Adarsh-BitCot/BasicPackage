@@ -26,7 +26,6 @@ struct ContentView: View {
                 //                openLink(url: "https://www.bitcot.com")
                 
                 getResponseJSON = getAPICall(url: getApiURL)
-                print(getResponseJSON)
             } label: {
                 Text("Action")
             }
