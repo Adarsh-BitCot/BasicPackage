@@ -21,22 +21,22 @@ struct ContentView: View {
                 .font(.largeTitle)
             Spacer()
             Button {
-                isLoading = true
+//                isLoading = true
                     //getAPICall(url: apiURL)
                     //postAPICall(url: postApiURL, param: ["name":"morpheus",
                     //                                             "job":"leader"])
                     //                openLink(url: "https://www.bitcot.com")
                 
-//                getResponseJSON = getAPICall(url: getApiURL)
+                getResponseJSON = getAPICall(url: getApiURL)
             } label: {
-                if isLoading {
-                    HStack(spacing: 15) {
-                        ProgressView()
-                        Text("Loading…")
-                    }
-                }else{
+//                if isLoading {
+//                    HStack(spacing: 15) {
+//                        ProgressView()
+//                        Text("Loading…")
+//                    }
+//                }else{
                     Text("Action")
-                }
+//                }
             }
             Spacer()
         }
