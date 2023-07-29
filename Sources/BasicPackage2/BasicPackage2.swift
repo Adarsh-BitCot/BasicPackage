@@ -56,19 +56,25 @@ public struct BasicPackage2 {
 //    return apiData ?? Data()
 //}
 
-public func getAPICall(url: String) {
+public func getAPICall(url: String) -> [String:Any]{
+    var resultJSON: [String:Any] = [:]
     NetworkManager.shared.makeAPICall(urlString: url) { (jsonData) in
-        print(jsonData)
+        print(jsonData ?? [:])
+        resultJSON = jsonData ?? [:]
     }
+    return resultJSON
 }
 
 public func postAPICall(url: String,
                         param: [String:Any],
-                        headers: HTTPHeaders = [:]){
+                        headers: HTTPHeaders = [:]) -> [String:Any]{
     
+    var resultJSON: [String:Any] = [:]
     NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { (jsonData) in
-        print(jsonData)
+        print(jsonData ?? [:])
+        resultJSON = jsonData ?? [:]
     }
+    return resultJSON
 }
 
 public func openLink(url: String) {
