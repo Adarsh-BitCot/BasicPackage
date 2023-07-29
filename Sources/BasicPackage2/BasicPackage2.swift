@@ -62,6 +62,14 @@ public func getAPICall(url: String) {
     }
 }
 
+public func postAPICall(url: String,
+                        param: [String:Any],
+                        headers: HTTPHeaders = [:]){
+    
+    NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { (jsonData) in
+    print(jsonData)
+}
+
 public func openLink(url: String) {
 //    UIApplication.shared.openURL(URL(string: "http://www.stackoverflow.com")!)
     UIApplication.shared.open(URL(string: url)!)
