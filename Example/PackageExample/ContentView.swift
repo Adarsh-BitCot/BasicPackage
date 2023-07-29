@@ -27,7 +27,7 @@ struct ContentView: View {
                     //                                             "job":"leader"])
                     //                openLink(url: "https://www.bitcot.com")
                 
-                getResponseJSON = getAPICall(url: getApiURL)
+//                getResponseJSON = getAPICall(url: getApiURL)
             } label: {
                 if isLoading {
                     HStack(spacing: 15) {
