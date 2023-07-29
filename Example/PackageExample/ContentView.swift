@@ -9,12 +9,21 @@ import SwiftUI
 import BasicPackage2
 
 struct ContentView: View {
+    @State var data: Data = Data()
+    @State var apiURL: String = "https://reqres.in/api/users?page=2"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Users available")
+                .fontDesign(.rounded)
+                .font(.largeTitle)
+            Spacer()
+            Button {
+                data = getAPIData(url: apiURL)
+            } label: {
+                Text("Get User list")
+            }
+            Spacer()
         }
         .padding()
     }

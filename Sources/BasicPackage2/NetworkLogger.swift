@@ -52,33 +52,33 @@ extension NetworkLogger {
         logNetworkCall(s)
     }
 
-    func logResponse(_ response: URLResponse?, method: String, data: Data? = nil) {
-        guard logLevel != .off else { return }
-        var s = "⬇️ \(method) '\(response?.url?.absoluteString ?? "")'"
-
-        if let httpResponse = response as? HTTPURLResponse {
-            s += "("
-            let iconNumber = Int(floor(Double(httpResponse.statusCode) / 100.0))
-            if let iconString = statusIcons[iconNumber] {
-                s += "\(iconString) "
-            }
-
-            s += "\(httpResponse.statusCode)"
-            if let statusString = ErrorCode(rawValue: httpResponse.statusCode) {
-                s += " \(statusString.defaultDisplayMessage)"
-            }
-            s += ")"
-        }
-
-        if logLevel == .verbose,
-            let headers = (response as? HTTPURLResponse)?.allHeaderFields as? [String: AnyObject], !headers.isEmpty {
-            s += "\n" + logHeaders(headers)
-
-            s += "\nBody: \(bodyString(data))"
-        }
-
-        logNetworkCall(s)
-    }
+//    func logResponse(_ response: URLResponse?, method: String, data: Data? = nil) {
+//        guard logLevel != .off else { return }
+//        var s = "⬇️ \(method) '\(response?.url?.absoluteString ?? "")'"
+//
+//        if let httpResponse = response as? HTTPURLResponse {
+//            s += "("
+//            let iconNumber = Int(floor(Double(httpResponse.statusCode) / 100.0))
+//            if let iconString = statusIcons[iconNumber] {
+//                s += "\(iconString) "
+//            }
+//
+//            s += "\(httpResponse.statusCode)"
+//            if let statusString = ErrorCode(rawValue: httpResponse.statusCode) {
+//                s += " \(statusString.defaultDisplayMessage)"
+//            }
+//            s += ")"
+//        }
+//
+//        if logLevel == .verbose,
+//            let headers = (response as? HTTPURLResponse)?.allHeaderFields as? [String: AnyObject], !headers.isEmpty {
+//            s += "\n" + logHeaders(headers)
+//
+//            s += "\nBody: \(bodyString(data))"
+//        }
+//
+//        logNetworkCall(s)
+//    }
 
     func logError(_ request: URLRequest, error: NSError) {
         guard logLevel != .off else { return }
