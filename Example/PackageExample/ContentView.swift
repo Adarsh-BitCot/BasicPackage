@@ -14,17 +14,17 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Users available")
+            Text("Welcome")
                 .fontDesign(.rounded)
                 .font(.largeTitle)
             Spacer()
             Button {
 //                data = getAPIData(url: apiURL)
 //                print(data.first)
+                openLink(url: "https://www.bitcot.com")
             } label: {
-                Text("Get User list")
+                Text("Know more about us!")
             }
-            Spacer()
         }
         .padding()
     }

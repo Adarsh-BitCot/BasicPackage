@@ -39,21 +39,27 @@ public struct BasicPackage2 {
 //}
 
 
-public func getAPIData(url: String) -> Data{
-    var apiData: Data?
-    
-    AF.request(url).response { response in
-        if let data = response.data{
-//            do{
-//                let decoded = try JSONDecoder().decode(model.self, from: data)
-////                self.dataSet.append((decoded.data?.first)!)
-//            }catch{
-//                print(error.localizedDescription)
-//            }
-            apiData = data
-        }
+//public func getAPIData(url: String) -> Data{
+//    var apiData: Data?
+//
+//    AF.request(url).response { response in
+//        if let data = response.data{
+////            do{
+////                let decoded = try JSONDecoder().decode(model.self, from: data)
+//////                self.dataSet.append((decoded.data?.first)!)
+////            }catch{
+////                print(error.localizedDescription)
+////            }
+//            apiData = data
+//        }
+//    }
+//    return apiData ?? Data()
+//}
+
+public func getAPICall(url: String) {
+    NetworkManager.shared.makeAPICall(urlString: url) { (jsonData) in
+        print(jsonData)
     }
-    return apiData ?? Data()
 }
 
 public func openLink(url: String) {
