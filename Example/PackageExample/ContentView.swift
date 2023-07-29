@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var getApiURL: String = "https://reqres.in/api/users/2"
     @State var postApiURL:String = "https://reqres.in/api/users"
     @State var getResponseJSON: [String:Any] = [:]
+    @State private var isLoading = false
     
     var body: some View {
         VStack {
@@ -20,15 +21,24 @@ struct ContentView: View {
                 .font(.largeTitle)
             Spacer()
             Button {
-                //                getAPICall(url: apiURL)
-//                postAPICall(url: postApiURL, param: ["name":"morpheus",
-//                                             "job":"leader"])
-                //                openLink(url: "https://www.bitcot.com")
+                isLoading = true
+                    //getAPICall(url: apiURL)
+                    //postAPICall(url: postApiURL, param: ["name":"morpheus",
+                    //                                             "job":"leader"])
+                    //                openLink(url: "https://www.bitcot.com")
                 
                 getResponseJSON = getAPICall(url: getApiURL)
             } label: {
-                Text("Action")
+                if isLoading {
+                    HStack(spacing: 15) {
+                        ProgressView()
+                        Text("Loading…")
+                    }
+                }else{
+                    Text("Action")
+                }
             }
+            Spacer()
         }
         .padding()
     }
