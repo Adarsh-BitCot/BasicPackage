@@ -16,7 +16,7 @@ class NetworkManager: NSObject {
                      headers : HTTPHeaders = [:],
                      method: String = "GET",
                      encoding: ParameterEncoding = URLEncoding.default,
-                     completion:@escaping ([String: Any]?) -> Void) {
+                     completion:@escaping ([String: Any]?, Error?) -> Void) {
         AF.request(urlString,
                    method: HTTPMethod(rawValue: method),
                    parameters: parameters,
@@ -25,10 +25,10 @@ class NetworkManager: NSObject {
             switch response.result {
             case .success(let value):
 //                print(String(data: value as! Data, encoding: .utf8)!)
-                completion(value as? [String : Any])
+                completion(value as? [String : Any], nil)
             case .failure(let error):
                 print(error)
-                completion(nil)
+                completion(nil, error)
             }
         }
     }
