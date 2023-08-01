@@ -16,20 +16,24 @@ class NetworkManager: NSObject {
                      headers : HTTPHeaders = [:],
                      method: String = "GET",
                      encoding: ParameterEncoding = URLEncoding.default,
-                     completion:@escaping ([String: Any]?, Error?) -> Void) {
-        AF.request(urlString,
-                   method: HTTPMethod(rawValue: method),
-                   parameters: parameters,
-                   encoding: encoding,
-                   headers: headers).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-//                print(String(data: value as! Data, encoding: .utf8)!)
-                completion(value as? [String : Any], nil)
-            case .failure(let error):
-                print(error)
-                completion(nil, error)
+                     completion:@escaping ([String: Any]?, Errors?) -> Void) {
+        
+        if Reachability.isConnectedToNetwork() {
+            AF.request(urlString,
+                       method: HTTPMethod(rawValue: method),
+                       parameters: parameters,
+                       encoding: encoding,
+                       headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    completion(value as? [String : Any], nil)
+                case .failure(let error):
+                    print(error)
+                    completion(nil, Errors.invalidResponse)
+                }
             }
+        }else{
+            completion(nil, Errors.apiError(message: "NO INTERNET"))
         }
     }
 }
