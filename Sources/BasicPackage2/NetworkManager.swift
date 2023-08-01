@@ -16,24 +16,40 @@ class NetworkManager: NSObject {
                      headers : HTTPHeaders = [:],
                      method: String = "GET",
                      encoding: ParameterEncoding = URLEncoding.default,
-                     completion:@escaping ([String: Any]?, Errors?) -> Void) {
+                     completion:@escaping (Result<Data, Errors>) -> Void) {
+        
+//        if Reachability.isConnectedToNetwork() {
+//            AF.request(urlString,
+//                       method: HTTPMethod(rawValue: method),
+//                       parameters: parameters,
+//                       encoding: encoding,
+//                       headers: headers).responseJSON { response in
+//                switch response.result {
+//                case .success(let value):
+//                    completion(.success(value))
+//                case .failure(let error):
+//                    print(error)
+//                    completion(.failure(.invalidResponse))
+//                }
+//            }
+//        }else{
+//            completion(.failure(.apiError(message: "NO INTERNET")))
+//        }
         
         if Reachability.isConnectedToNetwork() {
             AF.request(urlString,
                        method: HTTPMethod(rawValue: method),
                        parameters: parameters,
                        encoding: encoding,
-                       headers: headers).responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    completion(value as? [String : Any], nil)
-                case .failure(let error):
-                    print(error)
-                    completion(nil, Errors.invalidResponse)
+                       headers: headers).response { responseData in
+                if let jsonData = responseData.data {
+                    completion(.success(jsonData))
+                }else{
+                    completion(.failure(.invalidData))
                 }
             }
         }else{
-            completion(nil, Errors.apiError(message: "NO INTERNET"))
+            completion(.failure(.apiError(message: "NO INTERNET")))
         }
     }
 }

@@ -14,20 +14,30 @@ public struct BasicPackage2 {
 
 @available(iOS 13.0.0, *)
 public func getAPICall(url: String,
-                       completion: @escaping ([String:Any]?, Errors?) -> Void) {
+                       completion: @escaping (Data?, Errors?) -> Void) {
     
-    NetworkManager.shared.makeAPICall(urlString: url) { jsonData, error in
-        completion(jsonData, error)
+    NetworkManager.shared.makeAPICall(urlString: url) { result in
+        switch result {
+        case .success(let data):
+            completion(data, nil)
+        case .failure(let error):
+            completion(nil, error)
+        }
     }
 }
 
 public func postAPICall(url: String,
                         param: [String:Any],
                         headers: HTTPHeaders = [:],
-                        completion: @escaping ([String:Any]?, Errors?) -> Void){
+                        completion: @escaping (Data?, Errors?) -> Void){
     
-    NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { jsonData, error  in
-        completion(jsonData, error)
+    NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { result  in
+        switch result {
+        case .success(let data):
+            completion(data, nil)
+        case .failure(let error):
+            completion(nil, error)
+        }
     }
 }
 
