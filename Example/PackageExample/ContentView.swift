@@ -11,8 +11,7 @@ import BasicPackage2
 struct ContentView: View {
     @State var getApiURL: String = "https://reqres.in/api/users/2"
     @State var postApiURL:String = "https://reqres.in/api/users"
-    @State var getResponseJSON: [String:Any] = [:]
-    @State private var isLoading = false
+    @State var postResponse: BaseModel<ResponseData>?
     
     var body: some View {
         VStack {
@@ -26,7 +25,11 @@ struct ContentView: View {
                 getAPICall(url: getApiURL,
                            type: BaseModel<ResponseData>.self)
                 { responseModel, error in
-                    print(responseModel?.data?.first_name ?? "")
+                    if let response = responseModel?.data {
+                        print(response.email ?? "")
+                    } else {
+                        print(error ?? "Error")
+                    }
                 }
             } label: {
                 Text("Get API")

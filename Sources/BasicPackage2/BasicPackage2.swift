@@ -46,7 +46,11 @@ public func postAPICall<V>(url: String,
         switch result {
         case .success(let data):
             do{
-                print(data.prettyString ?? "")
+                print("""
+                --------------------JSON DATA--------------------
+                      \(data.prettyString ?? "")
+                --------------------END--------------------
+""")
                 let object = try JSONDecoder().decode(type, from: data)
                 completion(object, nil)
             } catch _ {
