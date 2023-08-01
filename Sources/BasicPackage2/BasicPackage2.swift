@@ -57,17 +57,14 @@ public struct BasicPackage2 {
 //}
 
 @available(iOS 13.0.0, *)
-public func getAPICall(url: String, completion: @escaping ([String:Any], Error?) -> Void) -> [String:Any]{
+public func getAPICall(url: String, completion: @escaping ([String:Any], Error?) -> Void) {
 //    let semaphore = DispatchSemaphore(value: 0)
-    var resultJSON: [String:Any] = [:]
     NetworkManager.shared.makeAPICall(urlString: url) { jsonData, error in
         print(jsonData ?? [:])
-        resultJSON = jsonData ?? [:]
-        completion(<#T##[String : Any]#>, <#T##Error?#>)
+        completion(jsonData ?? [:], error)
 //        semaphore.signal()
     }
 //    semaphore.wait()
-    return resultJSON
 }
 
 public func postAPICall(url: String,
@@ -75,7 +72,7 @@ public func postAPICall(url: String,
                         headers: HTTPHeaders = [:]) -> [String:Any]{
     
     var resultJSON: [String:Any] = [:]
-    NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { (jsonData) in
+    NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { jsonData, error  in
         print(jsonData ?? [:])
         resultJSON = jsonData ?? [:]
     }
