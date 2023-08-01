@@ -20,9 +20,12 @@ struct ContentView: View {
                 .fontDesign(.rounded)
                 .font(.largeTitle)
             Spacer()
+            
+            //GET API Button
             Button {
-                //                openLink(url: "https://www.bitcot.com")
-                getAPICall(url: getApiURL, completion: { jsonData, error in
+                getAPICall(url: getApiURL,
+                           completion:
+                            { jsonData, error in
                     if error != nil {
                         print(error?.localizedDescription)
                     }else{
@@ -33,13 +36,23 @@ struct ContentView: View {
                 Text("Get API")
             }
             
+            //POST API Button
             Button {
-//                ["name":"morpheus", "job":"leader"]
-                //                openLink(url: "https://www.bitcot.com")
+                postAPICall(url: postApiURL,
+                            param: ["name":"morpheus",
+                                    "job":"leader"])
+                { jsonData, error in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                    }else{
+                        print(jsonData)
+                    }
+                }
             } label: {
                 Text("Post API")
             }
             
+            //Website Button
             Button {
                 openLink(url: "https://www.bitcot.com")
             } label: {
