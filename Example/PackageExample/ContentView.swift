@@ -23,31 +23,32 @@ struct ContentView: View {
             
             //GET API Button
             Button {
-                getAPICall(url: getApiURL,
-                           completion:
-                            { jsonData, error in
-                    if error != nil {
-                        print(error ?? "Error")
-                    }else{
-                        print(jsonData ?? [:])
+                getAPICall(url: getApiURL) { jsonData, error in
+                    do {
+                        //                        print(jsonData.prettyString ?? "")
+                        let object = try JSONDecoder().decode(BaseModel<ResponseData>.self, from: jsonData ?? Data())
+                        print(object.responseData?.email)
+                    } catch let error {
+                        print(error.localizedDescription)
                     }
-                })
+                    
+                }
             } label: {
                 Text("Get API")
             }
             
             //POST API Button
             Button {
-                postAPICall(url: postApiURL,
-                            param: ["name":"morpheus",
-                                    "job":"leader"])
-                { jsonData, error in
-                    if error != nil {
-                        print(error ?? "Error")
-                    }else{
-                        print(jsonData ?? [:])
-                    }
-                }
+//                postAPICall(url: postApiURL,
+//                            param: ["name":"morpheus",
+//                                    "job":"leader"])
+//                { jsonData, error in
+//                    if error != nil {
+//                        print(error ?? "Error")
+//                    }else{
+//                        print(jsonData ?? [:])
+//                    }
+//                }
             } label: {
                 Text("Post API")
             }

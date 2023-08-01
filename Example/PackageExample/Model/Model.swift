@@ -7,12 +7,17 @@
 
 import Foundation
 
-struct BaseModel : Codable {
-    let data : Data?
+struct BaseModel <T: Codable>: Codable {
+    let responseData : ResponseData?
     let support : Support?
+    
+    enum CodingKeys: String, CodingKey {
+        case responseData = "data"
+        case support
+    }
 }
 
-struct Data : Codable {
+struct ResponseData : Codable {
     let id : Int?
     let email : String?
     let first_name : String?

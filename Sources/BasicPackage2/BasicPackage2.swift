@@ -13,13 +13,20 @@ public struct BasicPackage2 {
 }
 
 @available(iOS 13.0.0, *)
-public func getAPICall(url: String,
-                       completion: @escaping (Data?, Errors?) -> Void) {
+public func getAPICall<V>(url: String,
+                          type: V.Type,
+                          completion: @escaping (V?, Errors?) -> Void) where V : Decodable {
     
     NetworkManager.shared.makeAPICall(urlString: url) { result in
         switch result {
         case .success(let data):
-            completion(data, nil)
+            do {
+                print(data.prettyString ?? "")
+                let object = try JSONDecoder().decode(type, from: data)
+                completion(object, nil)
+            } catch _ {
+                completion(nil, .invalidData)
+            }
         case .failure(let error):
             completion(nil, error)
         }
@@ -96,5 +103,11 @@ public func loadImage(imageView:UIImageView, photoURL:String, placeholder: UIIma
                 }
             }
         }
+    }
+}
+
+extension Data {
+    var prettyString: NSString? {
+        return NSString(data: self, encoding: String.Encoding.utf8.rawValue) ?? nil
     }
 }
