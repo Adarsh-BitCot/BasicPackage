@@ -27,9 +27,9 @@ struct ContentView: View {
                            completion:
                             { jsonData, error in
                     if error != nil {
-                        print(error?.localizedDescription)
+                        print(error?.localizedDescription ?? "Error")
                     }else{
-                        print(jsonData)
+                        print(jsonData ?? [:])
                     }
                 })
             } label: {
@@ -43,9 +43,9 @@ struct ContentView: View {
                                     "job":"leader"])
                 { jsonData, error in
                     if error != nil {
-                        print(error?.localizedDescription)
+                        print(error?.localizedDescription ?? "Error")
                     }else{
-                        print(jsonData)
+                        print(jsonData ?? [:])
                     }
                 }
             } label: {
