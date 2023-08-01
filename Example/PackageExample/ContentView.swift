@@ -43,7 +43,7 @@ struct ContentView: View {
                                     "job":"leader"])
                 { jsonData, error in
                     if error != nil {
-                        print(error?.localizedDescription ?? "Error")
+                        print(error?.localizedDescription)
                     }else{
                         print(jsonData ?? [:])
                     }

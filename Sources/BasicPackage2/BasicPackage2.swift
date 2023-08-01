@@ -24,7 +24,7 @@ public func getAPICall(url: String,
 public func postAPICall(url: String,
                         param: [String:Any],
                         headers: HTTPHeaders = [:],
-                        completion: @escaping ([String:Any]?, Error?) -> Void){
+                        completion: @escaping ([String:Any]?, Errors?) -> Void){
     
     NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { jsonData, error  in
         completion(jsonData, error)
