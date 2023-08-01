@@ -23,15 +23,10 @@ struct ContentView: View {
             
             //GET API Button
             Button {
-                getAPICall(url: getApiURL) { jsonData, error in
-                    do {
-                        //                        print(jsonData.prettyString ?? "")
-                        let object = try JSONDecoder().decode(BaseModel<ResponseData>.self, from: jsonData ?? Data())
-                        print(object.responseData?.email)
-                    } catch let error {
-                        print(error.localizedDescription)
-                    }
-                    
+                getAPICall(url: getApiURL,
+                           type: BaseModel<ResponseData>.self)
+                { responseModel, error in
+                    print(responseModel?.responseData?.email)
                 }
             } label: {
                 Text("Get API")
