@@ -26,7 +26,7 @@ struct ContentView: View {
                 getAPICall(url: getApiURL,
                            type: BaseModel<ResponseData>.self)
                 { responseModel, error in
-                    print(responseModel?.responseData?.email)
+                    print(responseModel?.data?.first_name ?? "")
                 }
             } label: {
                 Text("Get API")
@@ -34,16 +34,13 @@ struct ContentView: View {
             
             //POST API Button
             Button {
-//                postAPICall(url: postApiURL,
-//                            param: ["name":"morpheus",
-//                                    "job":"leader"])
-//                { jsonData, error in
-//                    if error != nil {
-//                        print(error ?? "Error")
-//                    }else{
-//                        print(jsonData ?? [:])
-//                    }
-//                }
+                let params = ["name":"morpheus","job":"leader"]
+                postAPICall(url: postApiURL,
+                            param: params,
+                            type: BaseModel<ResponseData>.self)
+                { responseModel, error in
+                    print(responseModel?.job ?? "")
+                }
             } label: {
                 Text("Post API")
             }

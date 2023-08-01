@@ -8,12 +8,20 @@
 import Foundation
 
 struct BaseModel <T: Codable>: Codable {
-    let responseData : ResponseData?
+    let data : ResponseData?
     let support : Support?
+    let job : String?
+    let name : String?
+    let id : String?
+    let createdAt : String?
     
     enum CodingKeys: String, CodingKey {
-        case responseData = "data"
+        case data = "data"
         case support
+        case job
+        case name
+        case id
+        case createdAt
     }
 }
 
