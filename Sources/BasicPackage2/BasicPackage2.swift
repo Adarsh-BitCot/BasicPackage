@@ -57,30 +57,25 @@ public struct BasicPackage2 {
 //}
 
 @available(iOS 13.0.0, *)
-public func getAPICall(url: String, completion: @escaping ([String:Any], Error?) -> Void) {
-//    let semaphore = DispatchSemaphore(value: 0)
+public func getAPICall(url: String,
+                       completion: @escaping ([String:Any]?, Error?) -> Void) {
+    
     NetworkManager.shared.makeAPICall(urlString: url) { jsonData, error in
-//        print(jsonData ?? [:])
-        completion(jsonData ?? [:], error)
-//        semaphore.signal()
+        completion(jsonData, error)
     }
-//    semaphore.wait()
 }
 
 public func postAPICall(url: String,
                         param: [String:Any],
-                        headers: HTTPHeaders = [:]) -> [String:Any]{
+                        headers: HTTPHeaders = [:],
+                        completion: @escaping ([String:Any]?, Error?) -> Void){
     
-    var resultJSON: [String:Any] = [:]
     NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { jsonData, error  in
-        print(jsonData ?? [:])
-        resultJSON = jsonData ?? [:]
+        completion(jsonData, error)
     }
-    return resultJSON
 }
 
 public func openLink(url: String) {
-//    UIApplication.shared.openURL(URL(string: "http://www.stackoverflow.com")!)
     UIApplication.shared.open(URL(string: url)!)
 }
 

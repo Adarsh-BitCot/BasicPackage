@@ -21,9 +21,6 @@ struct ContentView: View {
                 .font(.largeTitle)
             Spacer()
             Button {
-                //                isLoading = true
-                //postAPICall(url: postApiURL, param: ["name":"morpheus",
-                //                                             "job":"leader"])
                 //                openLink(url: "https://www.bitcot.com")
                 getAPICall(url: getApiURL, completion: { jsonData, error in
                     if error != nil {
@@ -33,15 +30,22 @@ struct ContentView: View {
                     }
                 })
             } label: {
-                //                if isLoading {
-                //                    HStack(spacing: 15) {
-                //                        ProgressView()
-                //                        Text("Loading…")
-                //                    }
-                //                }else{
-                Text("Action")
-                //                }
+                Text("Get API")
             }
+            
+            Button {
+//                ["name":"morpheus", "job":"leader"]
+                //                openLink(url: "https://www.bitcot.com")
+            } label: {
+                Text("Post API")
+            }
+            
+            Button {
+                openLink(url: "https://www.bitcot.com")
+            } label: {
+                Text("Open Website")
+            }
+            
             Spacer()
         }
         .padding()
