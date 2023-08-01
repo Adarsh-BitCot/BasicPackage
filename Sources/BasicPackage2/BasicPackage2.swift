@@ -33,15 +33,25 @@ public func getAPICall<V>(url: String,
     }
 }
 
-public func postAPICall(url: String,
+public func postAPICall<V>(url: String,
                         param: [String:Any],
                         headers: HTTPHeaders = [:],
-                        completion: @escaping (Data?, Errors?) -> Void){
-    
-    NetworkManager.shared.makeAPICall(urlString: url, parameters: param, headers: headers, method: "POST") { result  in
+                        type: V.Type,
+                        completion: @escaping (V?, Errors?) -> Void) where V : Decodable {
+   
+    NetworkManager.shared.makeAPICall(urlString: url,
+                                      parameters: param,
+                                      headers: headers,
+                                      method: "POST") { result in
         switch result {
         case .success(let data):
-            completion(data, nil)
+            do{
+                print(data.prettyString ?? "")
+                let object = try JSONDecoder().decode(type, from: data)
+                completion(object, nil)
+            } catch _ {
+                completion (nil, .invalidData)
+            }
         case .failure(let error):
             completion(nil, error)
         }

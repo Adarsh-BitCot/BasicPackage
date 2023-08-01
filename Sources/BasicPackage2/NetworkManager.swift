@@ -18,24 +18,6 @@ class NetworkManager: NSObject {
                      encoding: ParameterEncoding = URLEncoding.default,
                      completion:@escaping (Result<Data, Errors>) -> Void) {
         
-//        if Reachability.isConnectedToNetwork() {
-//            AF.request(urlString,
-//                       method: HTTPMethod(rawValue: method),
-//                       parameters: parameters,
-//                       encoding: encoding,
-//                       headers: headers).responseJSON { response in
-//                switch response.result {
-//                case .success(let value):
-//                    completion(.success(value))
-//                case .failure(let error):
-//                    print(error)
-//                    completion(.failure(.invalidResponse))
-//                }
-//            }
-//        }else{
-//            completion(.failure(.apiError(message: "NO INTERNET")))
-//        }
-        
         if Reachability.isConnectedToNetwork() {
             AF.request(urlString,
                        method: HTTPMethod(rawValue: method),
