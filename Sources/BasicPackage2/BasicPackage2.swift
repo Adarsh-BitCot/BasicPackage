@@ -60,7 +60,7 @@ public struct BasicPackage2 {
 public func getAPICall(url: String, completion: @escaping ([String:Any], Error?) -> Void) {
 //    let semaphore = DispatchSemaphore(value: 0)
     NetworkManager.shared.makeAPICall(urlString: url) { jsonData, error in
-        print(jsonData ?? [:])
+//        print(jsonData ?? [:])
         completion(jsonData ?? [:], error)
 //        semaphore.signal()
     }

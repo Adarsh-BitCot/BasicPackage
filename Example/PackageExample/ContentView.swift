@@ -25,7 +25,13 @@ struct ContentView: View {
                 //postAPICall(url: postApiURL, param: ["name":"morpheus",
                 //                                             "job":"leader"])
                 //                openLink(url: "https://www.bitcot.com")
-                //                getResponseJSON = getAPICall(url: getApiURL)
+                getAPICall(url: getApiURL, completion: { jsonData, error in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                    }else{
+                        print(jsonData)
+                    }
+                })
             } label: {
                 //                if isLoading {
                 //                    HStack(spacing: 15) {
