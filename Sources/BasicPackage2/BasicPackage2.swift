@@ -47,8 +47,8 @@ public func postAPICall<V>(url: String,
         case .success(let data):
             do{
                 print("""
-                --------------------JSON DATA--------------------
-                      \(data.prettyString ?? "")
+            --------------------JSON DATA--------------------
+\(data.prettyString ?? "")
                 --------------------END--------------------
 """)
                 let object = try JSONDecoder().decode(type, from: data)
