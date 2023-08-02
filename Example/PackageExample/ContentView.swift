@@ -9,9 +9,7 @@ import SwiftUI
 import BasicPackage2
 
 struct ContentView: View {
-    @State var getApiURL: String = "https://reqres.in/api/users/2"
-    @State var postApiURL:String = "https://reqres.in/api/users"
-    @State var postResponse: BaseModel<ResponseData>?
+    @State var page: Int = 1
     
     var body: some View {
         VStack {
@@ -22,11 +20,11 @@ struct ContentView: View {
             
             //GET API Button
             Button {
-                getAPICall(url: getApiURL,
+                getAPICall(url: apiURL.listOfUser(page: page),
                            type: BaseModel<ResponseData>.self)
                 { responseModel, error in
                     if let response = responseModel?.data {
-                        print(response.email ?? "")
+                        print(response.first?.name ?? "")
                     } else {
                         print(error ?? "Error")
                     }
@@ -37,8 +35,8 @@ struct ContentView: View {
             
             //POST API Button
             Button {
-                let params = ["name":"morpheus","job":"leader"]
-                postAPICall(url: postApiURL,
+                let params = ["name":"Adarsh","job":"leader"]
+                postAPICall(url: apiURL.create,
                             param: params,
                             type: BaseModel<ResponseData>.self)
                 { responseModel, error in

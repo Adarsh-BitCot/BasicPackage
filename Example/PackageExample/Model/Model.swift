@@ -8,20 +8,28 @@
 import Foundation
 
 struct BaseModel <T: Codable>: Codable {
-    let data : ResponseData?
     let support : Support?
     let job : String?
     let name : String?
     let id : String?
     let createdAt : String?
+    let page : Int?
+    let per_page : Int?
+    let total : Int?
+    let total_pages : Int?
+    let data : [ResponseData]?
     
     enum CodingKeys: String, CodingKey {
-        case data = "data"
         case support
         case job
         case name
         case id
         case createdAt
+        case page
+        case per_page
+        case total
+        case total_pages
+        case data = "data"
     }
 }
 
@@ -31,6 +39,10 @@ struct ResponseData : Codable {
     let first_name : String?
     let last_name : String?
     let avatar : String?
+    let name : String?
+    let year : Int?
+    let color : String?
+    let pantone_value : String?
 }
 
 struct Support : Codable {
