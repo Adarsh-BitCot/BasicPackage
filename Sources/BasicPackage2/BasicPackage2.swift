@@ -38,15 +38,16 @@ public func getAPICall<V>(url: String,
 }
 
 public func postAPICall<V>(url: String,
-                        param: [String:Any],
-                        headers: HTTPHeaders = [:],
-                        type: V.Type,
-                        completion: @escaping (V?, Errors?) -> Void) where V : Decodable {
-   
+                           param: [String:Any],
+                           headers: HTTPHeaders = [:],
+                           type: V.Type,
+                           method: String = "POST",
+                           completion: @escaping (V?, Errors?) -> Void) where V : Decodable {
+    
     NetworkManager.shared.makeAPICall(urlString: url,
                                       parameters: param,
                                       headers: headers,
-                                      method: "POST") { result in
+                                      method: method) { result in
         switch result {
         case .success(let data):
             do{
