@@ -15,7 +15,7 @@ public struct BasicPackage2 {
 @available(iOS 13.0.0, *)
 public func getAPICall<V>(url: String,
                           type: V.Type,
-                          completion: @escaping (V?, Errors?) -> Void) where V : Decodable {
+                          completion: @escaping (V?, String?) -> Void) where V : Decodable {
     
     NetworkManager.shared.makeAPICall(urlString: url) { result in
         switch result {
@@ -29,10 +29,10 @@ public func getAPICall<V>(url: String,
                 let object = try JSONDecoder().decode(type, from: data)
                 completion(object, nil)
             } catch _ {
-                completion(nil, .invalidData)
+                completion(nil, Errors.apiError(message: "Unable to Decode").displayMessage)
             }
         case .failure(let error):
-            completion(nil, error)
+            completion(nil, error.displayMessage)
         }
     }
 }
@@ -42,7 +42,7 @@ public func postAPICall<V>(url: String,
                            headers: HTTPHeaders = [:],
                            type: V.Type,
                            method: String = "POST",
-                           completion: @escaping (V?, Errors?) -> Void) where V : Decodable {
+                           completion: @escaping (V?, String?) -> Void) where V : Decodable {
     
     NetworkManager.shared.makeAPICall(urlString: url,
                                       parameters: param,
@@ -59,10 +59,10 @@ public func postAPICall<V>(url: String,
                 let object = try JSONDecoder().decode(type, from: data)
                 completion(object, nil)
             } catch _ {
-                completion (nil, .invalidData)
+                completion (nil, Errors.apiError(message: "Unable to Decode").displayMessage)
             }
         case .failure(let error):
-            completion(nil, error)
+            completion(nil, error.displayMessage)
         }
     }
 }
