@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  PackageExample
 //
-//  Created by bitcot on 28/07/23.
+//  Created by Adarsh Sharma on 28/07/23.
 //
 
 import SwiftUI
@@ -26,7 +26,7 @@ struct ContentView: View {
                     getAPICall(url: apiURL.listOfUser(page: page),
                                type: BaseModel<ResponseData>.self)
                     { responseModel, error in
-                        if let response = responseModel?.data {
+                        if let response = responseModel?.responseData {
                             print(response.first?.name ?? "")
                         } else {
                             print(error ?? "Error")

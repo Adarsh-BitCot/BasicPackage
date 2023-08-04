@@ -2,7 +2,7 @@
 //  Constant.swift
 //  PackageExample
 //
-//  Created by bitcot on 02/08/23.
+//  Created by Adarsh Sharma on 02/08/23.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ var middlemanBaseURL: String {
 }
 
 struct apiURL {
-    static let login = "\(reqresBaseURL)/login"
+    static let reqresLogin = "\(reqresBaseURL)/login"
     static let create = "\(reqresBaseURL)/users"
     
     static func listOfUser (page: Int) -> String {

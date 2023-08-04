@@ -2,7 +2,7 @@
 //  BaseModel.swift
 //  PackageExample
 //
-//  Created by bitcot on 29/07/23.
+//  Created by Adarsh Sharma on 29/07/23.
 //
 
 import Foundation
