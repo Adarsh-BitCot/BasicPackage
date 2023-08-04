@@ -19,39 +19,39 @@ public struct BasicPackage2 {
 }
 
 @available(iOS 13.0.0, *)
-public func getAPICall<V>(url: String,
-                          type: V.Type,
-                          completion: @escaping (V?, String?) -> Void) where V : Decodable {
-    
-    NetworkManager.shared.makeAPICall(urlString: url) { result in
-        switch result {
-        case .success(let data):
-            do {
-                print("""
-             --------------------JSON DATA--------------------
-\(data.prettyString ?? "")
-                --------------------END--------------------
-""")
-                let object = try JSONDecoder().decode(type, from: data)
-                completion(object, nil)
-            } catch _ {
-                completion(nil, Errors.apiError(message: "Unable to Decode").displayMessage)
-            }
-        case .failure(let error):
-            completion(nil, error.displayMessage)
-        }
-    }
-}
+//public func getAPICall<V>(url: String,
+//                          type: V.Type,
+//                          completion: @escaping (V?, String?) -> Void) where V : Decodable {
+//
+//    NetworkManager.shared.makeAPICall(urlString: url) { result in
+//        switch result {
+//        case .success(let data):
+//            do {
+//                print("""
+//             --------------------JSON DATA--------------------
+//\(data.prettyString ?? "")
+//                --------------------END--------------------
+//""")
+//                let object = try JSONDecoder().decode(type, from: data)
+//                completion(object, nil)
+//            } catch _ {
+//                completion(nil, Errors.apiError(message: "Unable to Decode").displayMessage)
+//            }
+//        case .failure(let error):
+//            completion(nil, error.displayMessage)
+//        }
+//    }
+//}
 
-public func postAPICall<V>(url: String,
-                           param: [String:Any],
+public func callApiWithSPM<V>(url: String,
+                           body: [String:Any] = [:],
                            headers: HTTPHeaders = [:],
                            type: V.Type,
                            method: String = "POST",
                            completion: @escaping (V?, String?) -> Void) where V : Decodable {
     
     NetworkManager.shared.makeAPICall(urlString: url,
-                                      parameters: param,
+                                      body: body,
                                       headers: headers,
                                       method: method) { result in
         switch result {

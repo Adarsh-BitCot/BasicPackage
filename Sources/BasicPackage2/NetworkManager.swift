@@ -11,7 +11,7 @@ class NetworkManager: NSObject {
     static let shared = NetworkManager()
     private override init() {}
     func makeAPICall(urlString: String,
-                     parameters: [String: Any] = [:],
+                     body: [String: Any] = [:],
                      headers : HTTPHeaders = [:],
                      method: String = "GET",
                      encoding: ParameterEncoding = URLEncoding.default,
@@ -20,7 +20,7 @@ class NetworkManager: NSObject {
         if Reachability.isConnectedToNetwork() {
             AF.request(urlString,
                        method: HTTPMethod(rawValue: method),
-                       parameters: parameters,
+                       parameters: body,
                        encoding: encoding,
                        headers: headers).response { responseData in
                 if let jsonData = responseData.data {
