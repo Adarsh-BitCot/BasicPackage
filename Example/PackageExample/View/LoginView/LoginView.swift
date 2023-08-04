@@ -85,12 +85,12 @@ struct LoginButton: View {
     var body: some View {
         Button {
             self.showingLoader = true
-            let params = ["email": viewModel.email,
+            let body = ["email": viewModel.email,
                           "password": viewModel.password]
             
             if viewModel.isValidEmail(viewModel.email) {
-                postAPICall(url: apiURL.reqresLogin,
-                            param: params,
+                callApiWithSPM(url: apiURL.reqresLogin,
+                            body: body,
                             type: BaseModel<ResponseData>.self)
                 { response, error in
                     self.showingLoader = false

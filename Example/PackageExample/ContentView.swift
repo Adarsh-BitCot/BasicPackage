@@ -19,38 +19,36 @@ struct ContentView: View {
                     .font(.largeTitle)
                 Spacer()
                 
-                
-                
                 //GET API Button
-                Button {
-                    getAPICall(url: apiURL.listOfUser(page: page),
-                               type: BaseModel<ResponseData>.self)
-                    { responseModel, error in
-                        if let response = responseModel?.responseData {
-                            print(response.first?.name ?? "")
-                        } else {
-                            print(error ?? "Error")
-                        }
-                    }
-                } label: {
-                    Text("Get API")
-                }
+//                Button {
+//                    getAPICall(url: apiURL.listOfUser(page: page),
+//                               type: BaseModel<ResponseData>.self)
+//                    { responseModel, error in
+//                        if let response = responseModel?.responseData {
+//                            print(response.first?.name ?? "")
+//                        } else {
+//                            print(error ?? "Error")
+//                        }
+//                    }
+//                } label: {
+//                    Text("Get API")
+//                }
                 
                 //POST API Button
-                Button {
-                    let params = [
-                        "email": "eve.holt@reqres.in",
-                        "password": "cityslicka"
-                    ]
-                    postAPICall(url: apiURL.create,
-                                param: params,
-                                type: BaseModel<ResponseData>.self)
-                    { responseModel, error in
-                        print(responseModel?.job ?? "")
-                    }
-                } label: {
-                    Text("Post API")
-                }
+//                Button {
+//                    let params = [
+//                        "email": "eve.holt@reqres.in",
+//                        "password": "cityslicka"
+//                    ]
+//                    postAPICall(url: apiURL.create,
+//                                param: params,
+//                                type: BaseModel<ResponseData>.self)
+//                    { responseModel, error in
+//                        print(responseModel?.job ?? "")
+//                    }
+//                } label: {
+//                    Text("Post API")
+//                }
                 
                 //Website Button
                 Button {
