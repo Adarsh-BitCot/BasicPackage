@@ -28,11 +28,15 @@ struct LoginView: View {
                                         param: params,
                                         type: BaseModel<ResponseData>.self)
                             { response, error in
-                                viewModel.isLogin = true
-                                errorString = error?.localizedDescription ?? ""
+                                if let response = response {
+                                    viewModel.isLogin = true
+                                }else{
+                                    errorString = error ?? ""
+                                    showingAlert = true
+                                }
                             }
                         } else {
-                            print("WRONG PASSWORD")
+                            errorString = "Enter Valid Email"
                             showingAlert = true
                         }
                     } label: {
@@ -55,7 +59,7 @@ struct LoginView: View {
                 }
                 Spacer()
             }
-        .navigationBarHidden(true)
+            .navigationBarHidden(true)
         }
         .preferredColorScheme(.light)
     }
