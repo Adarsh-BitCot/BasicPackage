@@ -17,7 +17,9 @@ struct BaseModel <T: Codable>: Codable {
     let per_page : Int?
     let total : Int?
     let total_pages : Int?
-    let data : [ResponseData]?
+    let responseData : [ResponseData]?
+    let error: String?
+    let token: String?
     
     enum CodingKeys: String, CodingKey {
         case support
@@ -29,7 +31,9 @@ struct BaseModel <T: Codable>: Codable {
         case per_page
         case total
         case total_pages
-        case data = "data"
+        case responseData = "data"
+        case error
+        case token
     }
 }
 

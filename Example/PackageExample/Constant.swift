@@ -7,15 +7,19 @@
 
 import Foundation
 
-var baseURL: String {
+var reqresBaseURL: String {
     return "https://reqres.in/api"
 }
 
+var middlemanBaseURL: String {
+    return ""
+}
+
 struct apiURL {
-    static let login = "\(baseURL)/login"
-    static let create = "\(baseURL)/users"
+    static let login = "\(reqresBaseURL)/login"
+    static let create = "\(reqresBaseURL)/users"
     
     static func listOfUser (page: Int) -> String {
-        return "\(baseURL)/unknown?page=\(page)"
+        return "\(reqresBaseURL)/unknown?page=\(page)"
     }
 }

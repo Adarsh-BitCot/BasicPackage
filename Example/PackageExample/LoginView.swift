@@ -24,12 +24,17 @@ struct LoginView: View {
                                       "password": viewModel.password]
                         
                         if viewModel.isValidEmail(viewModel.email) {
-                            postAPICall(url: apiURL.create,
+                            postAPICall(url: apiURL.login,
                                         param: params,
                                         type: BaseModel<ResponseData>.self)
                             { response, error in
                                 if let response = response {
-                                    viewModel.isLogin = true
+                                    if let error = response.error{
+                                        errorString = error
+                                        showingAlert = true
+                                    }else{
+                                        viewModel.isLogin = true
+                                    }
                                 }else{
                                     errorString = error ?? ""
                                     showingAlert = true
