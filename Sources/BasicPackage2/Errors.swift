@@ -1,3 +1,9 @@
+//
+//  Errors.swift
+//
+//  Created by Adarsh Sharma on 28/07/23.
+//
+
 public enum Errors: Error {
     case invalidResponse
     case invalidURL
