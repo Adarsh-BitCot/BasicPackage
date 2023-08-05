@@ -11,20 +11,18 @@ import BasicPackage2
 //MARK: Main View
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
-    @State private var showingLoader = false
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
+            VStack {
                 HeaderView()
                 VStack {
-                    if showingLoader{
-                        LoaderView(tintColor: .black, scaleSize: 2.0).hidden(showingLoader)
+                    if viewModel.showingLoader{
+                        LoaderView(tintColor: .black, scaleSize: 2.0).hidden(viewModel.showingLoader)
                     }else{
                         TextFieldsView(vm: viewModel)
                         
-                        LoginButton(viewModel: viewModel,
-                                    showingLoader: showingLoader)
+                        LoginButton(viewModel: viewModel)
                     }
                 }
                 Spacer()
@@ -78,37 +76,18 @@ struct TextFieldsView: View {
 //MARK: Login Button View
 struct LoginButton: View {
     @StateObject var viewModel: LoginViewModel
-    @State var errorString: String = "Error"
-    @State private var showingAlert = false
-    @State var showingLoader: Bool
     
     var body: some View {
         Button {
-            self.showingLoader = true
-            let body = ["email": viewModel.email,
-                          "password": viewModel.password]
+            viewModel.showingLoader = true
+            let request = LoginRequest(email: viewModel.email,
+                                    password: viewModel.password)
             
             if viewModel.isValidEmail(viewModel.email) {
-                callApiWithSPM(url: apiURL.reqresLogin,
-                            body: body,
-                            type: BaseModel<ResponseData>.self)
-                { response, error in
-                    self.showingLoader = false
-                    if let response = response {
-                        if let error = response.error{
-                            errorString = error
-                            showingAlert = true
-                        }else{
-                            viewModel.isLogin = true
-                        }
-                    }else{
-                        errorString = error ?? ""
-                        showingAlert = true
-                    }
-                }
+                viewModel.callLoginAPI(loginReq: request)
             } else {
-                errorString = "Enter Valid Email"
-                showingAlert = true
+                viewModel.errorString = "Enter Valid Email"
+                    viewModel.showingAlert = true
             }
         } label: {
             Text("Login")
@@ -121,7 +100,7 @@ struct LoginButton: View {
                     ContentView()
                 }
         }
-        .alert(errorString, isPresented: $showingAlert) {
+        .alert(viewModel.errorString, isPresented: $viewModel.showingAlert) {
             Button("Ok", role: .cancel) {
                 
             }
@@ -135,9 +114,11 @@ struct LoaderView: View {
     var tintColor: Color = .blue
     var scaleSize: CGFloat = 1.0
     var body: some View {
+        Spacer()
         ProgressView()
             .scaleEffect(scaleSize, anchor: .center)
             .progressViewStyle (CircularProgressViewStyle(tint: tintColor))
+        Spacer()
     }
 }
 

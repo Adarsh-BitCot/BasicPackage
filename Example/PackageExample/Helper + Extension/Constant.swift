@@ -12,10 +12,11 @@ var reqresBaseURL: String {
 }
 
 var middlemanBaseURL: String {
-    return ""
+    return "https://middleman-api-stage.bitcotapps.com/api"
 }
 
 struct apiURL {
+    static let mmLogin = "\(middlemanBaseURL)/auth/login"
     static let reqresLogin = "\(reqresBaseURL)/login"
     static let create = "\(reqresBaseURL)/users"
     

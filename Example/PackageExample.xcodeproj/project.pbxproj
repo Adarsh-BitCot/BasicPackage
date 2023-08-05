@@ -11,6 +11,7 @@
 		8B2911B72A7A311200752665 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2911B62A7A311200752665 /* LoginView.swift */; };
 		8B2911B92A7A319A00752665 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2911B82A7A319A00752665 /* LoginViewModel.swift */; };
 		8B418C402A7D109500301C37 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B418C3F2A7D109500301C37 /* View+Extension.swift */; };
+		8B418C422A7D15A600301C37 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B418C412A7D15A600301C37 /* Encodable+Extension.swift */; };
 		8B57F6B32A74D987008A7827 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57F6B22A74D987008A7827 /* Model.swift */; };
 		8BE38F682A73CE8B005ED8FF /* PackageExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE38F672A73CE8B005ED8FF /* PackageExampleApp.swift */; };
 		8BE38F6A2A73CE8B005ED8FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE38F692A73CE8B005ED8FF /* ContentView.swift */; };
@@ -24,6 +25,7 @@
 		8B2911B62A7A311200752665 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8B2911B82A7A319A00752665 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8B418C3F2A7D109500301C37 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		8B418C412A7D15A600301C37 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		8B57F6B22A74D987008A7827 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8BE38F642A73CE8B005ED8FF /* PackageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PackageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE38F672A73CE8B005ED8FF /* PackageExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageExampleApp.swift; sourceTree = "<group>"; };
@@ -65,9 +67,18 @@
 			isa = PBXGroup;
 			children = (
 				8B2911B42A7A2E1700752665 /* Constant.swift */,
-				8B418C3F2A7D109500301C37 /* View+Extension.swift */,
+				8B418C432A7D15B300301C37 /* Extension */,
 			);
 			path = "Helper + Extension";
+			sourceTree = "<group>";
+		};
+		8B418C432A7D15B300301C37 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B418C3F2A7D109500301C37 /* View+Extension.swift */,
+				8B418C412A7D15A600301C37 /* Encodable+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		8B57F6B42A74D98F008A7827 /* Model */ = {
@@ -193,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B57F6B32A74D987008A7827 /* Model.swift in Sources */,
+				8B418C422A7D15A600301C37 /* Encodable+Extension.swift in Sources */,
 				8BE38F6A2A73CE8B005ED8FF /* ContentView.swift in Sources */,
 				8B2911B92A7A319A00752665 /* LoginViewModel.swift in Sources */,
 				8BE38F682A73CE8B005ED8FF /* PackageExampleApp.swift in Sources */,
