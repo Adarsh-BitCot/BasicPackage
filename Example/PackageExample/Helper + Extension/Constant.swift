@@ -11,6 +11,14 @@ var reqresBaseURL: String {
     return "https://reqres.in/api"
 }
 
-struct apiURL {
+struct ApiURL {
     static let reqresLogin = "\(reqresBaseURL)/login"
+}
+
+struct HttpMethod {
+    static let get = "GET"
+    static let put = "PUT"
+    static let post = "POST"
+    static let patch = "PATCH"
+    static let delete = "DELETE"
 }

@@ -26,9 +26,10 @@ class LoginViewModel: ObservableObject {
     func callLoginAPI(loginReq: LoginRequest){
         print(loginReq.toDictionary())
         
-        callApiWithSPM(url: apiURL.reqresLogin,
+        callApiWithSPM(url: ApiURL.reqresLogin,
                        body: loginReq.toDictionary(),
-                    type: BaseModel<ResponseData>.self)
+                       type: BaseModel<ResponseData>.self,
+                       method: HttpMethod.post)
         { response, error in
             self.showingLoader = false
             if let response = response {
