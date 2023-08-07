@@ -23,7 +23,7 @@ public func callApiWithSPM<V>(url: String,
                            body: [String:Any] = [:],
                            headers: HTTPHeaders = [:],
                            type: V.Type,
-                           method: String = "POST",
+                           method: String = "GET",
                            completion: @escaping (V?, String?) -> Void) where V : Decodable {
     
     NetworkManager.shared.makeAPICall(urlString: url,

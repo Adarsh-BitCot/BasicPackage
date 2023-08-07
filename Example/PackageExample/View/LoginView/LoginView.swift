@@ -22,6 +22,9 @@ struct LoginView: View {
                     }else{
                         TextFieldsView(vm: viewModel)
                         
+                        //"email": "eve.holt@reqres.in",
+//                        "password": "cityslicka"
+                        
                         LoginButton(viewModel: viewModel)
                     }
                 }
@@ -37,7 +40,7 @@ struct LoginView: View {
 struct HeaderView: View {
     var body: some View {
         VStack(alignment: .leading,spacing: 10) {
-            Text("Login")
+            Text("Login Page")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.black)
@@ -53,6 +56,7 @@ struct TextFieldsView: View {
     var body: some View {
         VStack(spacing: 20) {
             TextField("Email", text: $vm.email)
+                .textInputAutocapitalization(.never)
                 .frame(height: 50)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 6))
                 .background(Color.white)
