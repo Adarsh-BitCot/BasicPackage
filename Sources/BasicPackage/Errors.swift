@@ -26,8 +26,3 @@ public enum Errors: Error {
         }
     }
 }
-
-enum NetworkResponseState {
-    case success(Any)
-    case error(Errors)
-}
