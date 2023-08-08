@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import BasicPackage2
+import BasicPackage
 
 struct ContentView: View {
     var body: some View {

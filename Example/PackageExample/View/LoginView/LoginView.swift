@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import BasicPackage2
+import BasicPackage
 
 //MARK: Main View
 struct LoginView: View {
@@ -23,7 +23,7 @@ struct LoginView: View {
                         TextFieldsView(vm: viewModel)
                         
                         //"email": "eve.holt@reqres.in",
-//                        "password": "cityslicka"
+                        //                        "password": "cityslicka"
                         
                         LoginButton(viewModel: viewModel)
                     }
@@ -85,13 +85,14 @@ struct LoginButton: View {
         Button {
             viewModel.showingLoader = true
             let request = LoginRequest(email: viewModel.email,
-                                    password: viewModel.password)
+                                       password: viewModel.password)
             
             if viewModel.isValidEmail(viewModel.email) {
                 viewModel.callLoginAPI(loginReq: request)
             } else {
+                viewModel.showingLoader = false
                 viewModel.errorString = "Enter Valid Email"
-                    viewModel.showingAlert = true
+                viewModel.showingAlert = true
             }
         } label: {
             Text("Login")
@@ -109,7 +110,6 @@ struct LoginButton: View {
                 
             }
         }
-
     }
 }
 

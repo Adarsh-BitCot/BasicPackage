@@ -12,12 +12,12 @@
 		8B2911B92A7A319A00752665 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2911B82A7A319A00752665 /* LoginViewModel.swift */; };
 		8B418C402A7D109500301C37 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B418C3F2A7D109500301C37 /* View+Extension.swift */; };
 		8B418C422A7D15A600301C37 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B418C412A7D15A600301C37 /* Encodable+Extension.swift */; };
+		8B4869752A8227D5001BE931 /* BasicPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4869742A8227D5001BE931 /* BasicPackage */; };
 		8B57F6B32A74D987008A7827 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57F6B22A74D987008A7827 /* Model.swift */; };
 		8BE38F682A73CE8B005ED8FF /* PackageExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE38F672A73CE8B005ED8FF /* PackageExampleApp.swift */; };
 		8BE38F6A2A73CE8B005ED8FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE38F692A73CE8B005ED8FF /* ContentView.swift */; };
 		8BE38F6C2A73CE8C005ED8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE38F6B2A73CE8C005ED8FF /* Assets.xcassets */; };
 		8BE38F6F2A73CE8C005ED8FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE38F6E2A73CE8C005ED8FF /* Preview Assets.xcassets */; };
-		8BE38F772A73D096005ED8FF /* BasicPackage2 in Frameworks */ = {isa = PBXBuildFile; productRef = 8BE38F762A73D096005ED8FF /* BasicPackage2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BE38F772A73D096005ED8FF /* BasicPackage2 in Frameworks */,
+				8B4869752A8227D5001BE931 /* BasicPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +144,7 @@
 			);
 			name = PackageExample;
 			packageProductDependencies = (
-				8BE38F762A73D096005ED8FF /* BasicPackage2 */,
+				8B4869742A8227D5001BE931 /* BasicPackage */,
 			);
 			productName = PackageExample;
 			productReference = 8BE38F642A73CE8B005ED8FF /* PackageExample.app */;
@@ -175,7 +175,7 @@
 			);
 			mainGroup = 8BE38F5B2A73CE8B005ED8FF;
 			packageReferences = (
-				8BE38F752A73D096005ED8FF /* XCRemoteSwiftPackageReference "BasicPackage" */,
+				8B4869732A8227D5001BE931 /* XCRemoteSwiftPackageReference "BasicPackage" */,
 			);
 			productRefGroup = 8BE38F652A73CE8B005ED8FF /* Products */;
 			projectDirPath = "";
@@ -413,7 +413,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8BE38F752A73D096005ED8FF /* XCRemoteSwiftPackageReference "BasicPackage" */ = {
+		8B4869732A8227D5001BE931 /* XCRemoteSwiftPackageReference "BasicPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Adarsh-BitCot/BasicPackage";
 			requirement = {
@@ -424,10 +424,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8BE38F762A73D096005ED8FF /* BasicPackage2 */ = {
+		8B4869742A8227D5001BE931 /* BasicPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8BE38F752A73D096005ED8FF /* XCRemoteSwiftPackageReference "BasicPackage" */;
-			productName = BasicPackage2;
+			package = 8B4869732A8227D5001BE931 /* XCRemoteSwiftPackageReference "BasicPackage" */;
+			productName = BasicPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
