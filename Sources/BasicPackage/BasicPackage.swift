@@ -112,27 +112,3 @@ extension Data {
         return NSString(data: self, encoding: String.Encoding.utf8.rawValue) ?? nil
     }
 }
-
-//public func getAPICall<V>(url: String,
-//                          type: V.Type,
-//                          completion: @escaping (V?, String?) -> Void) where V : Decodable {
-//
-//    NetworkManager.shared.makeAPICall(urlString: url) { result in
-//        switch result {
-//        case .success(let data):
-//            do {
-//                print("""
-//             --------------------JSON DATA--------------------
-//\(data.prettyString ?? "")
-//                --------------------END--------------------
-//""")
-//                let object = try JSONDecoder().decode(type, from: data)
-//                completion(object, nil)
-//            } catch _ {
-//                completion(nil, Errors.apiError(message: "Unable to Decode").displayMessage)
-//            }
-//        case .failure(let error):
-//            completion(nil, error.displayMessage)
-//        }
-//    }
-//}
