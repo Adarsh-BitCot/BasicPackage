@@ -14,9 +14,9 @@ public enum Errors: Error {
     var displayMessage: String {
         switch self {
         case .invalidResponse:
-            return ""
+            return "Invalid Response"
         case .invalidURL:
-            return ""
+            return "Invalid URL"
         case .invalidData:
             return "Data invalid"
         case .network(let error):
