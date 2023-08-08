@@ -11,7 +11,7 @@ import Foundation
 import Kingfisher
 import SDWebImage
 
-public struct BasicPackage2 {
+public struct BasicPackage {
     public private(set) var text = "Hello, World!"
     
     public init() {
