@@ -5,22 +5,13 @@
 //
 
 public enum Errors: Error {
-    case invalidResponse
-    case invalidURL
     case invalidData
-    case network(Error?)
     case apiError(message: String)
     
     var displayMessage: String {
         switch self {
-        case .invalidResponse:
-            return "Invalid Response"
-        case .invalidURL:
-            return "Invalid URL"
         case .invalidData:
-            return "Data invalid"
-        case .network(let error):
-            return error?.localizedDescription ?? ""
+            return "API Data invalid"
         case .apiError(let message):
             return message
         }
