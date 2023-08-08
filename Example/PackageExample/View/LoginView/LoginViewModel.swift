@@ -32,16 +32,18 @@ class LoginViewModel: ObservableObject {
                        method: HttpMethod.post)
         { response, error in
             self.showingLoader = false
-            if let response = response {
-                if let error = response.error{
-                    self.errorString = error
-                    self.showingAlert = true
-                }else{
-                    self.isLogin = true
-                }
-            }else{
-                self.errorString = error ?? ""
+            guard let response else {
+                self.errorString = error ?? "Error"
                 self.showingAlert = true
+                return
+            }
+            
+            //Response Handling
+            if let error = response.error{
+                self.errorString = error
+                self.showingAlert = true
+            }else{
+                self.isLogin = true
             }
         }
     }
